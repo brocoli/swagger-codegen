@@ -77,7 +77,7 @@ class {{classname}}(Model):
         :type {{name}}: {{datatype}}
         """
 {{#isEnum}}
-        allowed_values = [{{#allowableValues}}{{#values}}"{{{this}}}"{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]
+        allowed_values = [{{#allowableValues}}{{#values}}{{#items.isString}}"{{/items.isString}}{{{this}}}{{#items.isString}}"{{/items.isString}}{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]
 {{#isContainer}}
 {{#isListContainer}}
         if not set({{{name}}}).issubset(set(allowed_values)):
